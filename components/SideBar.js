@@ -14,7 +14,7 @@ export default function SideBar(props) {
       <h1 className=' flex items-center justify-center text-xl h-16 font-bold bg-purple-600 text-white'>
         Hussle
       </h1>
-      <ul className=' flex flex-col text-lg'>
+      <ul className=' flex flex-col text-lg flex-1 h-full '>
         <li className=' flex justify-center items-center flex-col py-5 text-gray-500'>
           {' '}
           <UserGroupIcon className=' w-8 h-8' /> Manage
@@ -31,7 +31,7 @@ export default function SideBar(props) {
           {' '}
           <ChartBarSquareIcon className=' w-8 h-8' /> Report
         </li>
-        <li className=' flex justify-center items-center mt-auto flex-col py-5'>
+        <li className=' flex justify-center items-center mt-auto mb-16 flex-col py-5'>
           {' '}
           <CogIcon className=' w-8 h-8' /> Settings
         </li>
