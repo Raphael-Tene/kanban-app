@@ -118,7 +118,7 @@ const Home = () => {
                               board.items.map((item, iIndex) => {
                                 return <CardItem data={item} key={iIndex} />;
                               })}
-
+                            {provided.placeholder}
                             <button className=' flex items-center justify-center mt-6 space-x-2 text-lg'>
                               <span>Add task</span>
                               <PlusIcon className=' w-5 h-5 text-gray-500' />
