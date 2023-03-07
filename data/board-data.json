@@ -1,0 +1,154 @@
+[
+  {
+    "name": "Backlog",
+    "items": [
+      {
+        "priority": 0,
+        "title": "Company website redesign",
+        "chat": 1,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      },
+      {
+        "priority": 0,
+        "title": "Mobile login",
+        "chat": 1,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://png.pngtree.com/png-vector/20191101/ourmid/pngtree-male-avatar-simple-cartoon-design-png-image_1934458.jpg"
+          }
+        ]
+      },
+      {
+        "priority": 0,
+        "title": "App authorization",
+        "chat": 1,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "In Progress",
+    "items": [
+      {
+        "priority": 1,
+        "title": "Add Sanity.io CMS",
+        "chat": 1,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      },
+      {
+        "priority": 0,
+        "title": "Enable online payments",
+        "chat": 1,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      },
+      {
+        "priority": 0,
+        "title": "Activate Google login",
+        "chat": 1,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "In Review",
+    "items": [
+      {
+        "priority": 0,
+        "title": "Push final build to git",
+        "chat": 3,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      },
+      {
+        "priority": 0,
+        "title": "Add carousel",
+        "chat": 5,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      },
+      {
+        "priority": 0,
+        "title": "App authorization",
+        "chat": 10,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Completed",
+    "items": [
+      {
+        "priority": 2,
+        "title": "Company website redesign",
+        "chat": 1,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      },
+      {
+        "priority": 0,
+        "title": "Mobile login",
+        "chat": 1,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      },
+      {
+        "priority": 0,
+        "title": "App authorization",
+        "chat": 1,
+        "attachment": 2,
+        "assignees": [
+          {
+            "avt": "https://www.cssscript.com/wp-content/uploads/2020/12/Customizable-SVG-Avatar-Generator-In-JavaScript-Avataaars.js-150x150.png"
+          }
+        ]
+      }
+    ]
+  }
+]

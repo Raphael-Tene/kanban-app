@@ -1,11 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import Layout from 'components/Layout';
+import CardItem from 'components/CardItem';
+import BoardData from '../data/board-data.json';
 import {
-  ChatBubbleBottomCenterIcon,
   ChevronDownIcon,
   EllipsisVerticalIcon,
-  PaperClipIcon,
   PlusIcon,
 } from '@heroicons/react/24/solid';
 import Image from 'next/image';
@@ -68,68 +68,31 @@ const Home = () => {
           </div>
           {/* Board columns */}
           <div className=' grid grid-cols-4 gap-5 my-5 '>
-            <div className=' bg-gray-200 rounded-md shadow-md flex flex-col p-3 relative overflow-hidden'>
-              <span className=' w-full h-1 bg-gradient-to-r from-pink-700 to-red-200 absolute inset-x-0 top-0'></span>
-              <h4 className=' flex justify-between items-center mb-2'>
-                <span className=' text-2xl text-gray-500 font-bold'>
-                  Backlog
-                </span>{' '}
-                <EllipsisVerticalIcon className=' w- 5 h-5 text-gray-500' />
-              </h4>
-              <div className=' bg-white rounded-md p-3 mt-3'>
-                <label
-                  className=' bg-gradient-to-r from-blue-500 to-blue-200 py-1 rounded text-sm  px-2 text-white
-                '>
-                  Low Priority
-                </label>
-                <h5
-                  className=' text-md my-3 text-lg leading-6
-                '>
-                  Company website redesign.
-                </h5>
-                <div className=' flex justify-between'>
-                  <div className=' flex space-x-2 items-center'>
-                    <span className=' flex items-center space-x-2'>
-                      <ChatBubbleBottomCenterIcon className=' w-4 h-4 text-gray-500  mr-2' />{' '}
-                      <span>1</span>
-                    </span>
-                    <span className=' flex items-center space-x-2'>
-                      <PaperClipIcon className=' w-4 h-4 text-gray-500  mr-2' />{' '}
-                      <span>1</span>
-                    </span>
-                  </div>
-                  <ul className=' flex space-x-3 '>
-                    <li>
-                      <Image
-                        className=' object-cover rounded-full'
-                        src='https://xsgames.co/randomusers/assets/images/favicon.png'
-                        width={30}
-                        height={30}
-                        alt='avatar'
-                      />
-                    </li>
-                    <li>
-                      <Image
-                        className=' object-cover rounded-full'
-                        src='https://xsgames.co/randomusers/assets/images/favicon.png'
-                        width={30}
-                        height={30}
-                        alt='avatar'
-                      />
-                    </li>{' '}
-                    <li>
-                      <Image
-                        className=' object-cover rounded-full'
-                        src='https://xsgames.co/randomusers/assets/images/favicon.png'
-                        width={30}
-                        height={30}
-                        alt='avatar'
-                      />
-                    </li>
-                  </ul>
+            {BoardData.map((board, index) => {
+              return (
+                <div
+                  key={index}
+                  className=' bg-gray-200 rounded-md shadow-md flex flex-col p-3 relative overflow-hidden'>
+                  <span className=' w-full h-1 bg-gradient-to-r from-pink-700 to-red-200 absolute inset-x-0 top-0'></span>
+                  <h4 className=' flex justify-between items-center mb-2'>
+                    <span className=' text-2xl text-gray-500 font-bold'>
+                      {board.name}
+                    </span>{' '}
+                    <EllipsisVerticalIcon className=' w- 5 h-5 text-gray-500' />
+                  </h4>
+                  {/* insert card item here */}
+                  {board.items.length > 0 &&
+                    board.items.map((item, index) => {
+                      return <CardItem data={item} key={index} />;
+                    })}
+
+                  <button className=' flex items-center justify-center mt-6 space-x-2 text-lg'>
+                    <span>Add task</span>
+                    <PlusIcon className=' w-5 h-5 text-gray-500' />
+                  </button>
                 </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </Layout>
