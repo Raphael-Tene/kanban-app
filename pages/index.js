@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Layout from 'components/Layout';
 import CardItem from 'components/CardItem';
@@ -9,8 +9,34 @@ import {
   PlusIcon,
 } from '@heroicons/react/24/solid';
 import Image from 'next/image';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const Home = () => {
+  const [ready, setReady] = useState(false);
+  const [boardData, setBoardData] = useState(BoardData);
+
+  useEffect(() => {
+    if (process.browser) {
+      setReady(true);
+    }
+  }, []);
+
+  const onDragEnd = (re) => {
+    let newBoardData = boardData;
+    var dragItem =
+      newBoardData[parseInt(re.source.droppableId)].items[re.source.index];
+    newBoardData[parseInt(re.source.droppableId)].items.splice(
+      re.source.index,
+      1
+    );
+    newBoardData[parseInt(re.destination.droppableId)].items.splice(
+      re.destination.index,
+      0,
+      dragItem
+    );
+    setBoardData(newBoardData);
+  };
+
   return (
     <div className=''>
       <Head>
@@ -67,33 +93,45 @@ const Home = () => {
             </div>
           </div>
           {/* Board columns */}
-          <div className=' grid grid-cols-4 gap-5 my-5 '>
-            {BoardData.map((board, index) => {
-              return (
-                <div
-                  key={index}
-                  className=' bg-gray-200 rounded-md shadow-md flex flex-col p-3 relative overflow-hidden'>
-                  <span className=' w-full h-1 bg-gradient-to-r from-pink-700 to-red-200 absolute inset-x-0 top-0'></span>
-                  <h4 className=' flex justify-between items-center mb-2'>
-                    <span className=' text-2xl text-gray-500 font-bold'>
-                      {board.name}
-                    </span>{' '}
-                    <EllipsisVerticalIcon className=' w- 5 h-5 text-gray-500' />
-                  </h4>
-                  {/* insert card item here */}
-                  {board.items.length > 0 &&
-                    board.items.map((item, index) => {
-                      return <CardItem data={item} key={index} />;
-                    })}
+          {ready && (
+            <DragDropContext onDragEnd={onDragEnd}>
+              <div className=' grid grid-cols-4 gap-5 my-5 '>
+                {BoardData.map((board, index) => {
+                  return (
+                    <div key={index}>
+                      <Droppable droppableId={board.name}>
+                        {(provided) => (
+                          <div
+                            key={index}
+                            {...provided.droppableProps}
+                            ref={provided.innerRef}
+                            className=' bg-gray-200 rounded-md shadow-md flex flex-col p-3 relative overflow-hidden'>
+                            <span className=' w-full h-1 bg-gradient-to-r from-pink-700 to-red-200 absolute inset-x-0 top-0'></span>
+                            <h4 className=' flex justify-between items-center mb-2'>
+                              <span className=' text-2xl text-gray-500 font-bold'>
+                                {board.name}
+                              </span>{' '}
+                              <EllipsisVerticalIcon className=' w- 5 h-5 text-gray-500' />
+                            </h4>
+                            {/* insert card item here */}
+                            {board.items.length > 0 &&
+                              board.items.map((item, iIndex) => {
+                                return <CardItem data={item} key={iIndex} />;
+                              })}
 
-                  <button className=' flex items-center justify-center mt-6 space-x-2 text-lg'>
-                    <span>Add task</span>
-                    <PlusIcon className=' w-5 h-5 text-gray-500' />
-                  </button>
-                </div>
-              );
-            })}
-          </div>
+                            <button className=' flex items-center justify-center mt-6 space-x-2 text-lg'>
+                              <span>Add task</span>
+                              <PlusIcon className=' w-5 h-5 text-gray-500' />
+                            </button>
+                          </div>
+                        )}
+                      </Droppable>
+                    </div>
+                  );
+                })}
+              </div>
+            </DragDropContext>
+          )}
         </div>
       </Layout>
     </div>
