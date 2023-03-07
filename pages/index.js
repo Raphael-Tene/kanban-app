@@ -96,7 +96,7 @@ const Home = () => {
           {ready && (
             <DragDropContext onDragEnd={onDragEnd}>
               <div className=' grid grid-cols-4 gap-5 my-5 '>
-                {BoardData.map((board, index) => {
+                {boardData?.map((board, index) => {
                   return (
                     <div key={index}>
                       <Droppable droppableId={board.name}>
